@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Master</title>
+    <meta name="keywords" content="math, matematica, game" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Math Master</h1>
+    </header>
+
+    <main>
+
+        <!-- Toggle para Modo Escuro/Claro -->
+        <div class="theme-toggle">
+            <label>
+                <input type="checkbox" id="theme-switch">
+                <div class="switch">
+                    <img id="theme-icon" src="img/light_mode.png" alt="Light mode icon">
+                </div>
+            </label>
+        </div>        
+
+        <!-- Tela de seleção de jogos -->
+        <div id="selection-screen">
+            <h2>Escolha um Jogo:</h2>
+            <div class="game-buttons">
+                <!-- Primeira linha de botões -->
+                <div class="button-row">
+                    <button class="game-select" data-game="operation">Jogo das Operações Básicas</button>
+                    <!-- Botão de tutorial ao lado -->
+                    <span class="help-icon" onclick="showTutorial('operacoes')">?</span>
+                </div>
+                <!-- Segunda linha de botões -->
+                <div class="button-row">
+                    <button class="game-select" data-game="fractions">Jogo de Frações</button>
+                    <!-- Botão de tutorial ao lado -->
+                    <span class="help-icon" onclick="showTutorial('fracoes')">?</span>
+                </div>
+                <!-- Terceira linha de botões -->
+                <div class="button-row">
+                    <button class="game-select" data-game="powers">Jogo de Potenciação</button>
+                    <!-- Botão de tutorial ao lado -->
+                    <span class="help-icon" onclick="showTutorial('potenciacao')">?</span>
+                </div>
+                <!-- Quarta linha de botões -->
+                <div class="button-row">
+                    <button class="game-select" data-game="percentage">Jogo de Porcentagem</button>
+                    <!-- Botão de tutorial ao lado -->
+                    <span class="help-icon" onclick="showTutorial('porcentagem')">?</span>
+                </div>
+                <!-- Quinta linha de botões -->
+                <div class="button-row">
+                    <button class="game-select" data-game="equation">Jogo de Equações</button>
+                    <!-- Botão de tutorial ao lado -->
+                    <span class="help-icon" onclick="showTutorial('equacoes')">?</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contêiner do jogo -->
+        <h2 id="game-title" style="display: none;"></h2> <!-- Título dinâmico do jogo -->
+        <div id="game-container" style="display: none;">
+            <div id="game-screen">
+                <div id="lives">Vidas: ➕➕➕➕➕</div>
+                <p id="level">Nível: 1</p>
+                <p id="score">Pontuação: 0</p>
+                <div id="question-container">
+                    <p id="question"></p>
+                    <input type="text" id="answer" placeholder="Digite a resposta">
+                    <button id="submit-answer">Enviar</button>
+                </div>
+                <p id="feedback"></p>
+                <button id="back-button">Voltar</button>
+            </div>
+        </div>
+
+        <!-- Container de GAME OVER -->
+        <div id="game-over-container" style="display: none;">
+            <h2>GAME OVER</h2>
+            <p>Você perdeu todas as suas vidas!</p>
+            <button id="restart-game-over">Recomeçar</button>
+        </div>
+
+        <!-- Container de VITÓRIA -->
+        <div id="victory-container" style="display: none;">
+            <h2>VITÓRIA!</h2>
+            <p>Parabéns, você completou todos os níveis!</p>
+            <button id="restart-victory">Recomeçar</button>
+        </div>
+
+        <!-- Modal do tutorial -->
+        <div id="tutorialModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeTutorial()">&times;</span>
+                <div id="tutorialContent">
+                    <!-- Conteúdo dinâmico será inserido aqui -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Copyright 2024 - Pedro Coelho</p>
+        <p>Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Incluindo o arquivo JavaScript geral -->
+    <script src="global.js"></script>
+    <!-- Incluindo o arquivo JavaScript do jogo de operações -->
+    <script src="operation-game.js"></script>
+    <!-- Incluindo o arquivo JavaScript do jogo de frações -->
+    <script src="fractions-game.js"></script>
+    <!-- Incluindo o arquivo JavaScript do jogo de potência -->
+    <script src="powers-game.js"></script>
+    <!-- Incluindo o arquivo JavaScript do jogo de porcentagem -->
+    <script src="percentage-game.js"></script>
+    <!-- Incluindo o arquivo JavaScript do jogo de equações -->
+    <script src="equation-game.js"></script>
+</body>
+</html>
