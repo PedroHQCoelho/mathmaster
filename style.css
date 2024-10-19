@@ -139,7 +139,7 @@ body.dark-mode #game-container {
 #submit-answer {
     margin-left: 10px;
     padding: 10px 20px;
-    background-color: #0d6efd;
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
@@ -150,12 +150,12 @@ body.dark-mode #game-container {
 
 /* Efeito de hover com a nova cor */
     #submit-answer:hover {
-    background-color: #0b5ed7; /* Nova cor ao passar o mouse */
+    background-color: #218838; /* Nova cor ao passar o mouse */
 }
 
 /* Efeito de clique (ao pressionar) */
 #submit-answer:active {
-    background-color: #094bb5; /* Cor ligeiramente mais escura ao clicar */
+    background-color: #1e7e34; /* Cor ligeiramente mais escura ao clicar */
     transform: scale(0.98); /* Efeito de "apertar" o botão */
 }
 
