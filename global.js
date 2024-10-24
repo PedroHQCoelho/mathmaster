@@ -246,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h2>Tutorial - Jogo de Frações</h2>
                         <p>Jogo para fazer cálculo de frações usando as 4 operações básicas.</p>
                         <p>Adição, subtração, multiplicação e divisão.</p>
+                        <p>Digitar a fração usando a "/". Exemplo: 1/2.</p>
                         <p>Você pode enviar a fração exata ou simplificada.</p>
                         <h3>Instruções:</h3>
                         <ul>
@@ -282,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.innerHTML = `
                         <h2>Tutorial - Jogo de Porcentagem</h2>
                         <p>Jogo para fazer cálculo usando de porcentagem de um certo número.</p>
+                        <p>Para números reais, usar somente o ".". Exemplo: 1.5.
                         <p>Para calcular a porcentagem, multiplique o número pelo valor percentual e depois divida por 100. Por exemplo, 20% de 50 é (20 x 50) ÷ 100 = 10.</p>
                         <h3>Instruções:</h3>
                         <ul>
