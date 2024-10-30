@@ -57,13 +57,14 @@ function generateQuestion() {
 
         case 4:
             // Nível 4: Divisão de números de 0 a 100.
-            num1 = Math.floor(Math.random() * 11);
-            num2 = Math.floor(Math.random() * 11);
+            num1 = Math.floor(Math.random() * 101);
+            num2 = Math.floor(Math.random() * 10) + 1;
             operator = '/';
-            // Garantir que a divisão seja exata e não tenha divisão por 0
-            if (operator === '/' && num2 !== 0) {
-                let quotient = Math.floor(Math.random() * 10) + 1;  // Quociente aleatório
-                num1 = num2 * quotient;  // Multiplicando para garantir uma divisão exata
+            // Garantir que a divisão seja exata e que não haja divisão por 0
+            if (operator === '/') {
+                let quotient = Math.floor(Math.random() * 10) + 1;  // Quociente aleatório entre 1 e 10
+                num2 = Math.floor(Math.random() * 10) + 1;  // Gera num2 aleatório entre 1 e 10
+                num1 = num2 * quotient;  // Multiplica para garantir uma divisão exata
             }
             currentAnswer = eval(`${num1} ${operator} ${num2}`);
             break;
@@ -73,10 +74,6 @@ function generateQuestion() {
             num1 = Math.floor(Math.random() * 11);  // Número 1 aleatório entre 0 e 10
             num2 = Math.floor(Math.random() * 11);  // Número 2 aleatório entre 0 e 10
             operator = ['+', '-', '*'][Math.floor(Math.random() * 3)];
-            // Garantir que a subtração não resulte em número negativo
-            if (operator === '-' && num1 < num2) {
-                [num1, num2] = [num2, num1];  // Inverter para garantir que o número maior venha primeiro
-            }
             currentAnswer = eval(`${num1} ${operator} ${num2}`);
             break;
 
@@ -89,14 +86,11 @@ function generateQuestion() {
             if (operator === '-' && num1 < num2) {
                 [num1, num2] = [num2, num1];  // Inverter para garantir que o número maior venha primeiro
             }
-            // Garantir que a divisão seja exata e não tenha divisão por 0
+            // Garantir que a divisão seja exata e que não haja divisão por 0
             if (operator === '/') {
-                // Recalcular num2 se for 0
-                while (num2 === 0) {
-                    num2 = Math.floor(Math.random() * 11);  // Garante que num2 não seja zero
-                }
-                let quotient = Math.floor(Math.random() * 10) + 1;  // Quociente aleatório
-                num1 = num2 * quotient;  // Multiplicando para garantir uma divisão exata
+                let quotient = Math.floor(Math.random() * 10) + 1;  // Quociente aleatório entre 1 e 10
+                num2 = Math.floor(Math.random() * 10) + 1;  // Gera num2 aleatório entre 1 e 10
+                num1 = num2 * quotient;  // Multiplica para garantir uma divisão exata
             }
             currentAnswer = eval(`${num1} ${operator} ${num2}`);
             break;
@@ -110,14 +104,11 @@ function generateQuestion() {
             if (operator === '-' && num1 < num2) {
                 [num1, num2] = [num2, num1];  // Inverter para garantir que o número maior venha primeiro
             }
-            // Garantir que a divisão seja exata e não tenha divisão por 0
+            // Garantir que a divisão seja exata e que não haja divisão por 0
             if (operator === '/') {
-                // Recalcular num2 se for 0
-                while (num2 === 0) {
-                    num2 = Math.floor(Math.random() * 51);  // Garante que num2 não seja zero
-                }
-                let quotient = Math.floor(Math.random() * 50) + 1;  // Quociente aleatório
-                num1 = num2 * quotient;  // Multiplicando para garantir uma divisão exata
+                let quotient = Math.floor(Math.random() * 50) + 1;  // Quociente aleatório entre 1 e 50
+                num2 = Math.floor(Math.random() * 50) + 1;  // Gera num2 aleatório entre 1 e 50
+                num1 = num2 * quotient;  // Multiplica para garantir uma divisão exata
             }
             currentAnswer = eval(`${num1} ${operator} ${num2}`);
             break;
@@ -131,14 +122,11 @@ function generateQuestion() {
             if (operator === '-' && num1 < num2) {
                 [num1, num2] = [num2, num1];  // Inverter para garantir que o número maior venha primeiro
             }
-            // Garantir que a divisão seja exata e não tenha divisão por 0
+            // Garantir que a divisão seja exata e que não haja divisão por 0
             if (operator === '/') {
-                // Recalcular num2 se for 0
-                while (num2 === 0) {
-                    num2 = Math.floor(Math.random() * 101);  // Garante que num2 não seja zero
-                }
-                let quotient = Math.floor(Math.random() * 100) + 1;  // Quociente aleatório
-                num1 = num2 * quotient;  // Multiplicando para garantir uma divisão exata
+                let quotient = Math.floor(Math.random() * 100) + 1;  // Quociente aleatório entre 1 e 100
+                num2 = Math.floor(Math.random() * 100) + 1;  // Gera num2 aleatório entre 1 e 100
+                num1 = num2 * quotient;  // Multiplica para garantir uma divisão exata
             }
             currentAnswer = eval(`${num1} ${operator} ${num2}`);
             break;
@@ -171,6 +159,9 @@ function generateQuestion() {
             }
             currentAnswer = eval(`${num1} ${operator} ${num2} ${operator2} ${num3}`);  // Calcula a resposta correta
             break;
+        case 11:
+            victory(); //Chama a função de vitória    
+            return;
     }
 
     // Exibir a pergunta no formato correto, substituindo '*' por '×' e '/' por '÷'
@@ -227,6 +218,13 @@ function loseLife() {
 // Função para exibir o GAME OVER
 function gameOver() {
     document.getElementById('question').innerHTML = '<span style="color: red;">GAME OVER</span>';  // Exibe "GAME OVER" em vermelho
+    document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
+    document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
+}
+
+//Função para exibir a VITÓRIA
+function victory() {
+    document.getElementById('question').innerHTML = '<span style="color: gold;">VOCÊ VENCEU! 🏆</span>';  // Exibe "VOCÊ VENCEU!" em dourado
     document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
     document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
 }

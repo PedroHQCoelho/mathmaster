@@ -112,7 +112,9 @@ function generateFractionQuestion() {
             denom2 = Math.floor(Math.random() * 1000) + 1;
             operator = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)]; // Operações aleatórias
             break;
-    
+        case 11:
+            victory();
+            return;
         default:
             console.log("Nível inválido");
             break;
@@ -232,6 +234,13 @@ function checkFractionAnswer() {
     // Função para exibir o GAME OVER
     function gameOverFraction() {
         document.getElementById('question').textContent = 'GAME OVER';  // Exibe "GAME OVER"
+        document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
+        document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
+    }
+
+    //Função para exibir a VITÓRIA
+    function victory() {
+        document.getElementById('question').innerHTML = '<span style="color: gold;">VOCÊ VENCEU! 🏆</span>';  // Exibe "VOCÊ VENCEU!" em dourado
         document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
         document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
     }

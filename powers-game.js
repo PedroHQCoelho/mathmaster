@@ -63,6 +63,9 @@ function generatePowerQuestion() {
             base = Math.floor(Math.random() * 101);  // Base de 0 a 100
             exponent = Math.floor(Math.random() * 11);  // Expoente de 0 a 10
             break;
+            case 11:
+                victory(); //Chama a função de vitória    
+                return;    
         default:
             break;
     }
@@ -120,6 +123,13 @@ function checkPowerAnswer() {
     // Função para exibir o GAME OVER
     function gameOverpower() {
         document.getElementById('question').innerHTML = '<span style="color: red;">GAME OVER</span>';  // Exibe "GAME OVER" em vermelho
+        document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
+        document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
+    }
+
+    //Função para exibir a VITÓRIA
+    function victory() {
+        document.getElementById('question').innerHTML = '<span style="color: gold;">VOCÊ VENCEU! 🏆</span>';  // Exibe "VOCÊ VENCEU!" em dourado
         document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
         document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
     }

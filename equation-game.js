@@ -191,7 +191,10 @@ function generateEquationQuestion() {
                 equation = `${num1} ${operator} ${num2} = x`;
                 equationAnswer = eval(`${num1} ${operator} ${num2}`);
             }
-            break;            
+            break;
+        case 7:
+            victory();
+            return;                
     }
 
     document.getElementById('question').innerHTML = `${equation}`;
@@ -243,6 +246,13 @@ function checkEquationAnswer() {
     // Função para exibir o GAME OVER
     function gameOverEquation() {
         document.getElementById('question').innerHTML = '<span style="color: red;">GAME OVER</span>';  // Exibe "GAME OVER" em vermelho
+        document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
+        document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
+    }
+
+    //Função para exibir a VITÓRIA
+    function victory() {
+        document.getElementById('question').innerHTML = '<span style="color: gold;">VOCÊ VENCEU! 🏆</span>';  // Exibe "VOCÊ VENCEU!" em dourado
         document.getElementById('feedback').textContent = '';  // Limpa o feedback anterior
         document.getElementById('answer').disabled = true;  // Desabilita a entrada de respostas
     }
