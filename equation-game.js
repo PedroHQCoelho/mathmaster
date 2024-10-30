@@ -13,7 +13,7 @@ function startEquationGame() {
     equationLives = 5;
     document.getElementById('level').textContent = `Nível: ${equationLevel}`;
     document.getElementById('score').textContent = `Pontuação: ${equationScore}`;
-    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe 3 vidas com "+"
+    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe vidas com "+"
     generateEquationQuestion();  // Gera a primeira equação
 }
 
@@ -204,33 +204,49 @@ function generateEquationQuestion() {
 function checkEquationAnswer() {
     if (currentGame !== 'equation') return;
 
+    // Obtém a resposta do jogador e o elemento de feedback
     const playerAnswer = document.getElementById('answer').value.trim();
+    const feedbackElement = document.getElementById('feedback');
 
+    // Verifica se a resposta está vazia ou não é um número
     if (playerAnswer === '' || isNaN(playerAnswer)) {
-        document.getElementById('feedback').textContent = "Espaço vazio ou valor inválido!";
+        feedbackElement.textContent = "Espaço vazio ou valor inválido!";
         return;
     }
 
+    // Remove as classes de animação para que possam ser aplicadas novamente
+    feedbackElement.classList.remove('correct-answer', 'wrong-answer');
+    void feedbackElement.offsetWidth;  // Trigger reflow para reiniciar a animação
+
     if (parseFloat(playerAnswer) === equationAnswer) {
-        document.getElementById('feedback').innerHTML = '<span style="color: green;">Correto!✅</span>';
+        // Configura o feedback como "Correto!" em verde e adiciona a animação
+        feedbackElement.innerHTML = '<span style="color: green;">Correto!✅</span>';
         equationScore += 10;
+        feedbackElement.classList.add('correct-answer');
     } else {
-        document.getElementById('feedback').innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${equationAnswer}.`;
-        loseLifeEquation();
+        // Configura o feedback como "Errado!" em vermelho e adiciona a animação
+        feedbackElement.innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${equationAnswer}.`;
+        loseLifeEquation();  // Chama a função para perder uma vida
+        feedbackElement.classList.add('wrong-answer');
     }
 
+    // Atualiza a pontuação e o nível na tela
     document.getElementById('score').textContent = `Pontuação: ${equationScore}`;
     if (equationScore % 100 === 0 && equationScore !== 0) {
         equationLevel++;
         document.getElementById('level').textContent = `Nível: ${equationLevel}`;
     }
 
-        // Verifica se ainda há vidas antes de gerar uma nova pergunta
-        if (equationLives > 0 ) {
-            generateEquationQuestion();  // Gera a próxima pergunta
-        }
-        document.getElementById('answer').value = '';  // Limpa o campo de resposta para a próxima pergunta
+    // Verifica se o jogador ainda tem vidas antes de gerar uma nova pergunta
+    if (equationLives > 0) {
+        generateEquationQuestion();  // Gera a próxima pergunta
+    } else {
+        gameOver();  // Exibe a tela de GAME OVER se o jogador perder todas as vidas
     }
+
+    // Limpa o campo de resposta para a próxima pergunta
+    document.getElementById('answer').value = '';  
+}
     
     // Função para remover uma vida e verificar o fim do jogo
     function loseLifeEquation() {

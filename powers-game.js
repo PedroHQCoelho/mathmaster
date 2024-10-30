@@ -11,7 +11,7 @@ function startPowerGame() {
     powerLives = 5;
     document.getElementById('level').textContent = `Nível: ${powerLevel}`;
     document.getElementById('score').textContent = `Pontuação: ${powerScore}`;
-    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe 3 vidas com "+"
+    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe vidas com "+"
     generatePowerQuestion();  // Gera a primeira questão
 }
 
@@ -77,37 +77,53 @@ function generatePowerQuestion() {
     document.getElementById('question').innerHTML = `${base} <sup>${exponent}</sup> = ?`;
 }
 
-// Função para verificar a resposta
+// Função para verificar a resposta do jogo de potenciação
 function checkPowerAnswer() {
     if (currentGame !== 'powers') return; 
 
     const playerAnswer = document.getElementById('answer').value.trim();
+    const feedbackElement = document.getElementById('feedback');
 
+    // Verifica se a resposta do jogador está vazia ou é inválida
     if (playerAnswer === '' || isNaN(playerAnswer)) {
-        document.getElementById('feedback').textContent = "Espaço vazio ou valor inválido!";
+        feedbackElement.textContent = "Espaço vazio ou valor inválido!";
         return;
     }
 
+    // Remove as classes de animação para reiniciar a animação, se necessário
+    feedbackElement.classList.remove('correct-answer', 'wrong-answer');
+    void feedbackElement.offsetWidth;  // Trigger reflow para reiniciar a animação
+
+    // Verifica se a resposta do jogador está correta
     if (parseInt(playerAnswer) === powerAnswer) {
-        document.getElementById('feedback').innerHTML = '<span style="color: green;">Correto!✅</span>';
+        // Configura o feedback como "Correto!" em verde e adiciona a animação
+        feedbackElement.innerHTML = '<span style="color: green;">Correto!✅</span>';
         powerScore += 10;
+        feedbackElement.classList.add('correct-answer');
     } else {
-        document.getElementById('feedback').innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${powerAnswer}.`;
+        // Configura o feedback como "Errado!" em vermelho e adiciona a animação
+        feedbackElement.innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${powerAnswer}.`;
         loseLifePower();
+        feedbackElement.classList.add('wrong-answer');
     }
 
+    // Atualiza a pontuação e o nível na tela
     document.getElementById('score').textContent = `Pontuação: ${powerScore}`;
     if (powerScore % 100 === 0 && powerScore !== 0) {
         powerLevel++;
         document.getElementById('level').textContent = `Nível: ${powerLevel}`;
     }
 
-        // Verifica se ainda há vidas antes de gerar uma nova pergunta
-        if (powerLives > 0 ) {
-            generatePowerQuestion();  // Gera a próxima pergunta
-        }
-        document.getElementById('answer').value = '';  // Limpa o campo de resposta para a próxima pergunta
+    // Verifica se o jogador ainda tem vidas antes de gerar uma nova pergunta
+    if (powerLives > 0) {
+        generatePowerQuestion();  // Gera a próxima pergunta
+    } else {
+        gameOver();  // Exibe a tela de GAME OVER se o jogador perder todas as vidas
     }
+
+    // Limpa o campo de resposta para a próxima pergunta
+    document.getElementById('answer').value = '';
+}
     
     // Função para remover uma vida e verificar o fim do jogo
     function loseLifePower() {

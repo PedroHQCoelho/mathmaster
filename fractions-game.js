@@ -12,7 +12,7 @@ function startFractionGame() {
     fractionLives = 5;
     document.getElementById('level').textContent = `Nível: ${fractionLevel}`;
     document.getElementById('score').textContent = `Pontuação: ${fractionScore}`;
-    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe 3 vidas com "+"
+    document.getElementById('lives').textContent = `Vidas: ➕➕➕➕➕`;  // Exibe vidas com "+"
     generateFractionQuestion();  // Gera a primeira pergunta
 }
 
@@ -178,6 +178,7 @@ function checkFractionAnswer() {
 
     // Obtém a resposta do jogador (agora permite barras "/")
     const playerAnswer = document.getElementById('answer').value.trim();
+    const feedbackElement = document.getElementById('feedback');
 
     // Valida se o formato da resposta está correto (na forma de fração)
     const fractionPattern = /^-?\d+\/\d+$/;  // Permite frações como -1/2, 1/2, etc.
@@ -185,40 +186,51 @@ function checkFractionAnswer() {
 
     // Verifica se a entrada corresponde ao formato de fração
     if (!match) {
-        document.getElementById('feedback').textContent = "Por favor, insira uma fração no formato correto (por exemplo, 1/2).";
+        feedbackElement.textContent = "Por favor, insira uma fração no formato correto (por exemplo, 1/2).";
         return;
     }
+
+    // Remove as classes de animação para reiniciar as animações, se necessário
+    feedbackElement.classList.remove('correct-answer', 'wrong-answer');
+    void feedbackElement.offsetWidth;  // Trigger reflow para reiniciar a animação
 
     // Extrai o numerador e denominador da resposta do jogador
     const playerNumerator = parseInt(match[0].split('/')[0], 10);
     const playerDenominator = parseInt(match[0].split('/')[1], 10);
 
-
-    // Simplificar a resposta do jogador
+    // Simplifica a fração fornecida pelo jogador
     const [simplifiedPlayerNumerator, simplifiedPlayerDenominator] = simplifyFraction(playerNumerator, playerDenominator);
 
-    // Verifica se a fração fornecida pelo jogador é igual à fração correta
+    // Verifica se a fração do jogador é igual à fração correta
     if (simplifiedPlayerNumerator === correctNumerator && simplifiedPlayerDenominator === correctDenominator) {
-        document.getElementById('feedback').innerHTML = '<span style="color: green;">Correto!✅</span>';
+        // Configura o feedback como "Correto!" em verde e adiciona a animação
+        feedbackElement.innerHTML = '<span style="color: green;">Correto!✅</span>';
         fractionScore += 10;
+        feedbackElement.classList.add('correct-answer');
     } else {
-        document.getElementById('feedback').innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${correctNumerator}/${correctDenominator}.`;
+        // Configura o feedback como "Errado!" em vermelho e adiciona a animação
+        feedbackElement.innerHTML = `<span style="color: red;">Errado!❌</span><br>A resposta correta era ${correctNumerator}/${correctDenominator}.`;
         loseLifeFraction();
+        feedbackElement.classList.add('wrong-answer');
     }
 
-    // Atualiza a pontuação e o nível
+    // Atualiza a pontuação e o nível na tela
     document.getElementById('score').textContent = `Pontuação: ${fractionScore}`;
     if (fractionScore % 100 === 0 && fractionScore !== 0) {
         fractionLevel++;
         document.getElementById('level').textContent = `Nível: ${fractionLevel}`;
     }
 
-        // Verifica se ainda há vidas antes de gerar uma nova pergunta
-        if (fractionLives > 0 ) {
-            generateFractionQuestion();  // Gera a próxima pergunta
-        }
-        document.getElementById('answer').value = '';  // Limpa o campo de resposta para a próxima pergunta
+    // Verifica se o jogador ainda tem vidas antes de gerar uma nova pergunta
+    if (fractionLives > 0) {
+        generateFractionQuestion();  // Gera a próxima pergunta
+    } else {
+        gameOver();  // Exibe a tela de GAME OVER se o jogador perder todas as vidas
     }
+
+    // Limpa o campo de resposta para a próxima pergunta
+    document.getElementById('answer').value = '';
+}
     
     // Função para remover uma vida e verificar o fim do jogo
     function loseLifeFraction() {

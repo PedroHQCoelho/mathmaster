@@ -371,3 +371,24 @@ input[type="checkbox"]:checked + .switch img {
     margin-left: 10px;
     font-size: 16px;
 }
+
+.correct-answer {
+    animation: pulse-green 0.5s;
+  }
+  
+  .wrong-answer {
+    animation: pulse-red 0.5s;
+  }
+  
+  @keyframes pulse-green {
+    0% { transform: scale(1); color: green; }
+    50% { transform: scale(1.1); color: lightgreen; }
+    100% { transform: scale(1); color: green; }
+  }
+  
+  @keyframes pulse-red {
+    0% { transform: scale(1); color: red; }
+    50% { transform: scale(1.1); color: pink; }
+    100% { transform: scale(1); color: red; }
+  }
+  
