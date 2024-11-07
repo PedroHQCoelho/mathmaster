@@ -21,6 +21,16 @@ body.dark-mode {
     color: #ffffff;
 }
 
+/* Definindo Poppins para os títulos */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Definindo Roboto para o texto principal */
+body, p {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Header */
 header {
     background-color: #0d6efd; /* Cor fixa */
@@ -376,7 +386,7 @@ input[type="checkbox"]:checked + .switch img {
     animation: pulse-green 0.5s;
   }
   
-  .wrong-answer {
+.wrong-answer {
     animation: pulse-red 0.5s;
   }
   
