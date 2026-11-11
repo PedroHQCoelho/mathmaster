@@ -1,42 +1,63 @@
 # Math Master
 
-**Português:**
+An educational browser game created as my undergraduate final project at **UERJ (Rio de Janeiro State University)**. Math Master uses gamification to make practising mathematics more interactive and engaging.
 
-Math Master é um jogo educacional desenvolvido como meu Projeto de Graduação na UERJ (Universidade do Estado do Rio de Janeiro). O objetivo do jogo é proporcionar uma experiência divertida e interativa para o aprendizado de matemática. Ele foi projetado para reforçar conceitos matemáticos de maneira lúdica, utilizando cinco temas principais: operações básicas, frações, potenciação, porcentagem e equações.
+<p align="center">
+  <a href="https://mathmaster-game.netlify.app/"><strong>Play Math Master</strong></a>
+</p>
 
-O jogo é gratuito e acessível através do navegador, tornando-o uma ferramenta prática para estudantes que desejam praticar matemática de forma dinâmica. Math Master foi desenvolvido com HTML, CSS e JavaScript, proporcionando uma experiência visual simples, porém eficaz.
+## About the project
 
-**Funcionalidades**
+Math Master brings together five mini-games covering key mathematical topics. Players answer questions, earn points, progress through levels and try to complete each challenge without losing all their lives.
 
-* Cinco jogos diferentes cobrindo tópicos variados de matemática.
-* Feedback imediato após cada resposta, incentivando o aprendizado.
-* Progressão de nível para desafios progressivos.
-* Interface amigável e acessível.
+## Features
 
-**Sobre o Projeto**
+- **Basic Operations:** practise addition, subtraction, multiplication and division.
+- **Fractions:** solve questions involving fractions.
+- **Exponentiation:** practise powers and exponents.
+- **Percentages:** work with percentage calculations.
+- **Equations:** solve mathematical equations.
+- **Progressive challenges:** advance through 10 levels.
+- **Score and lives:** earn points for correct answers and keep track of remaining lives.
+- **Tutorials:** read instructions before starting each mini-game.
+- **Light and dark themes:** switch the interface theme.
 
-Este projeto foi desenvolvido como parte do meu TCC na UERJ, onde explorei o impacto dos jogos no aprendizado matemático. Meu objetivo foi criar um recurso que torne o estudo da matemática mais acessível e interessante, utilizando a gamificação para engajar os estudantes.
+## Technologies
 
-Link para o jogo: [Math Master](https://mathmaster-game.netlify.app/)
+- HTML5
+- CSS3
+- JavaScript
+
+## How to run locally
+
+This project does not require a package manager or build step.
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PedroHQCoelho/mathmaster.git
+   ```
+2. Open the project folder.
+3. Open `index.html` in your browser.
+
+You can also use a local development server in your code editor.
+
+## Project background
+
+This game was developed as my undergraduate final project at UERJ. The project explores how game-based experiences can support mathematics learning by making practice more interactive.
+
+## Links
+
+- **Live game:** https://mathmaster-game.netlify.app/
+- **Repository:** https://github.com/PedroHQCoelho/mathmaster
 
 ---
 
-**English:**
+# Math Master (Português)
 
-Math Master
-Math Master is an educational game developed as my Graduation Project at UERJ (Universidade do Estado do Rio de Janeiro). The goal of the game is to provide a fun and interactive experience for learning mathematics. It is designed to reinforce mathematical concepts in an engaging way, using five main themes: basic operations, fractions, exponentiation, percentage, and equations.
+Jogo educativo para navegador desenvolvido como meu Trabalho de Conclusão de Curso na **UERJ (Universidade do Estado do Rio de Janeiro)**. A proposta é tornar a prática de matemática mais dinâmica por meio da gamificação.
 
-The game is free and accessible through any browser, making it a practical tool for students who wish to practice math dynamically. Math Master was built using HTML, CSS, and JavaScript, delivering a simple yet effective visual experience.
+O projeto reúne cinco mini-jogos: operações básicas, frações, potenciação, porcentagem e equações. O jogador responde às questões, acumula pontos, avança por 10 níveis e precisa administrar suas vidas para chegar à vitória.
 
-**Features**
+**Tecnologias:** HTML, CSS e JavaScript.
 
-* Five different games covering various math topics.
-* Immediate feedback after each answer, encouraging learning.
-* Level progression for increasing challenges.
-* User-friendly and accessible interface.
-  
-**About the Project**
-
-This project was developed as part of my Graduation Thesis at UERJ, where I explored the impact of games on math learning. My goal was to create a resource that makes studying math more accessible and engaging, utilizing gamification to captivate students.
-
-Link to the game: [Math Master](https://mathmaster-game.netlify.app/)
+**[Acesse o jogo](https://mathmaster-game.netlify.app/)**
