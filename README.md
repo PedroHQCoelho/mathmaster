@@ -29,20 +29,20 @@ The screenshots below show the main menu, the mini-games, the tutorial system an
 ### Main menu and game selection
 
 <p align="center">
-  <img src="docs/images/telainicial.png" alt="Math Master main menu, introducing the educational game" width="70%" />
+  <img src="docs/images/tela-inicial.png" alt="Math Master main menu, introducing the educational game" width="70%" />
 </p>
 
 The main screen introduces Math Master and gives players access to the available mathematical challenges.
 
 <p align="center">
-  <img src="docs/images/primeiroescopo-azul.png" alt="Early game selection screen with a light background and blue buttons" width="48%" />
-  <img src="docs/images/primeiroescopo-azul-darkmode.png" alt="Early game selection screen in dark mode with blue buttons" width="48%" />
+  <img src="docs/images/selecao-inicial-clara.png" alt="Early game selection screen with a light background and blue buttons" width="48%" />
+  <img src="docs/images/selecao-inicial-escura.png" alt="Early game selection screen in dark mode with blue buttons" width="48%" />
 </p>
 
 These early selection-screen designs show two visual theme options and the first layout of the mini-game menu.
 
 <p align="center">
-  <img src="docs/images/porcentagem-escopo-inicial.png" alt="Early percentage mini-game interface concept" width="60%" />
+  <img src="docs/images/porcentagem-conceito-inicial.png" alt="Early percentage mini-game interface concept" width="60%" />
 </p>
 
 An early look at the percentage challenge, documenting one of the initial interface iterations.
@@ -52,23 +52,23 @@ An early look at the percentage challenge, documenting one of the initial interf
 Each mini-game focuses on a different mathematical topic. Players solve the expression shown on screen by entering an answer and submitting it.
 
 <p align="center">
-  <img src="docs/images/jogodasaoperacoes.png" alt="Basic operations mini-game showing an addition question, remaining lives, level, score and answer field" width="48%" />
-  <img src="docs/images/jogodefracoes.png" alt="Fractions mini-game showing an addition of two fractions and the answer field" width="48%" />
+  <img src="docs/images/operacoes-basicas.png" alt="Basic operations mini-game showing an addition question, remaining lives, level, score and answer field" width="48%" />
+  <img src="docs/images/fracoes.png" alt="Fractions mini-game showing an addition of two fractions and the answer field" width="48%" />
 </p>
 
 - **Basic Operations:** practise calculations such as addition and other fundamental arithmetic operations.
 - **Fractions:** solve fraction questions, including adding fractions.
 
 <p align="center">
-  <img src="docs/images/jogodepotenciacao.png" alt="Exponentiation mini-game showing a power expression and answer field" width="48%" />
-  <img src="docs/images/jogodeporcentagem.png" alt="Percentage mini-game showing a percentage calculation and answer field" width="48%" />
+  <img src="docs/images/potenciacao.png" alt="Exponentiation mini-game showing a power expression and answer field" width="48%" />
+  <img src="docs/images/porcentagem.png" alt="Percentage mini-game showing a percentage calculation and answer field" width="48%" />
 </p>
 
 - **Exponentiation:** calculate powers and work with exponents.
 - **Percentages:** solve percentage problems by calculating a percentage of a given number.
 
 <p align="center">
-  <img src="docs/images/jogodeequacoes.png" alt="Equations mini-game showing a simple equation and answer field" width="60%" />
+  <img src="docs/images/equacoes.png" alt="Equations mini-game showing a simple equation and answer field" width="60%" />
 </p>
 
 - **Equations:** find the unknown value in a mathematical equation.
@@ -76,7 +76,7 @@ Each mini-game focuses on a different mathematical topic. Players solve the expr
 ### Tutorials and game outcomes
 
 <p align="center">
-  <img src="docs/images/tutorial.png" alt="Exponentiation tutorial explaining the rules and instructions before starting the mini-game" width="80%" />
+  <img src="docs/images/tutorial-potenciacao.png" alt="Exponentiation tutorial explaining the rules and instructions before starting the mini-game" width="80%" />
 </p>
 
 The tutorial screen explains the objective and rules of a mini-game before the player starts, including how to answer questions, earn feedback and manage lives.
